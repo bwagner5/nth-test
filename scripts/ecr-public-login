@@ -18,4 +18,4 @@ docker run --rm \
     -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:=""} \
     -e AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN:=""} \
     -e AWS_PAGER="" \
-    -i amazon/aws-cli ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}
+    amazon/aws-cli ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}
