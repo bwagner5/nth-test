@@ -43,6 +43,7 @@ EOF
 else # windows
     echo "Windows"
     choco install awscli --version ${VERSION} -y || :
+    ln -s "/cygdrive/c/Program Files/Amazon/AWSCLIV2/aws.exe" "${BUILD_DIR}/aws.exe"
 fi
 
 echo "✅ Install AWS CLI v${VERSION} for OS ${os} and arch ${arch}"
