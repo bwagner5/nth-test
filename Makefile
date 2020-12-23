@@ -2,8 +2,8 @@ VERSION = $(shell git describe --tags --always --dirty)
 LATEST_RELEASE_TAG=$(shell git describe --tags --abbrev=0)
 PREVIOUS_RELEASE_TAG=$(shell git describe --abbrev=0 --tags `git rev-list --tags --skip=1  --max-count=1`)
 REPO_FULL_NAME=aws/aws-node-termination-handler
-ECR_REGISTRY ?= public.ecr.aws/r6b0f9a1
-ECR_REPO ?= ${ECR_REGISTRY}/aws-node-termination-handler
+ECR_REGISTRY ?= public.ecr.aws/f3m9g5x6
+ECR_REPO ?= ${ECR_REGISTRY}/test
 IMG ?= amazon/aws-node-termination-handler
 IMG_TAG ?= ${VERSION}
 IMG_W_TAG = ${IMG}:${IMG_TAG}
@@ -141,9 +141,9 @@ helm-tests: helm-version-sync-test helm-lint helm-validate-eks-versions
 eks-cluster-test:
 	${MAKEFILE_PATH}/test/eks-cluster-test/run-test
 
-release: build-docker-images push-docker-images generate-k8s-yaml upload-resources-to-github
+release: build-docker-images push-docker-images
 
-release-windows: build-docker-images-windows push-docker-images-windows upload-resources-to-github-windows
+release-windows: build-docker-images-windows push-docker-images-windows
 
 test: spellcheck shellcheck unit-test e2e-test compatibility-test license-test go-report-card-test helm-sync-test helm-version-sync-test helm-lint
 

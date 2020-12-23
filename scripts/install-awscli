@@ -41,9 +41,7 @@ EOF
         -applyChoiceChangesXML "${CHOICES_XML}"
     ln -s "${BUILD_DIR}/aws-cli/aws" "${BUILD_DIR}/aws"
 else # windows
-    echo "Windows"
-    choco install awscli --version ${VERSION} -y || :
-    ln -s $(which aws) "${BUILD_DIR}/aws.exe"
+    choco install awscli --version ${VERSION} --force -y || :
 fi
 
 echo "✅ Install AWS CLI v${VERSION} for OS ${os} and arch ${arch}"
