@@ -43,7 +43,6 @@ EOF
 else # windows
     echo "Windows"
     choco install awscli --version ${VERSION} -y || :
-    refreshenv
     ln -s $(which aws) "${BUILD_DIR}/aws.exe"
 fi
 
