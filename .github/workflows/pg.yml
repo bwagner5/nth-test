@@ -20,4 +20,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Release Windows Assets
-      run: ls /
+      run: ls / && pwd -P 
