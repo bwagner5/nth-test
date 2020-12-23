@@ -1,4 +1,4 @@
-name: test
+name: pg
 
 on: [workflow_dispatch]
 
