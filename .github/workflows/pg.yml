@@ -20,4 +20,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Release Windows Assets
-      run: ls / && choco install awscli --version 2.1.13 && refreshenv && which aws && /c/Program\ Files/Amazon/AWSCLIV2/aws.exe --version
+      run: ls / && choco install awscli --version 2.1.13 && refreshenv && which aws && "/c/Program Files/Amazon/AWSCLIV2/aws.exe" --version
